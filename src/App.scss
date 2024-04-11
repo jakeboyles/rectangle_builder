@@ -11,6 +11,20 @@
     outline: none;
   }
 
+  .removeAll {
+    position: fixed;
+    top:0px;
+    right:0px;
+    background-color: #fff;
+
+    button {
+      background-color: transparent;
+      border:none;
+      padding:20px;
+
+    }
+  }
+
   button:hover {
     cursor: pointer;
   }
@@ -116,6 +130,22 @@
   
   .actions {
     z-index: 3;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top:1rem;
+
+    h1 {
+      padding:0;
+      margin:0;
+    }
+
+    > p {
+      width:70%;
+      line-height: 1.4em;
+    }
+  
+
   }
   
   canvas {
