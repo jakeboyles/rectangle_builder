@@ -2,41 +2,43 @@
 
 Rectangle builder is a small application that lets you draw, scale and move rectangles across the screen. You can remove a rectangle by clicking on it and then hitting backspace on your keyboard. You can access the menu by hitting the menu button in the top left of the application. That will let you name and save your layouts for future use. You can also delete and restore layouts from that section. 
 
+## Live Demo
+A live demo of this application can be found at: https://mighty-sands-33591-e1598a035237.herokuapp.com/.
 
 ## Technologies
-This project was bootstrapped using create react app (https://create-react-app.dev/). It uses vanilla react to handle the interactivity and JavaScript. We utilize SaSS for the CSS preprocessor.  
+This project was bootstrapped using Create React App (https://create-react-app.dev/). It uses vanilla React to handle the interactivity and JavaScript. We utilize SaSS for the CSS preprocessor.  
 
 ## Components
 There are two main components that go into the overall application. They are both in App.js, as that serves as the apps main component.
 
-- RectangleBuilder
-    - This is the main component that provides all the logic and canvas for the creating of the rectangles and the manipulation of them. It has some props that can be configured on the component that make it easily customizable. Those are:
-        - width
-            - The desired width of the canvas.
-        - height 
-            - The desired height of the canvas.
-        - boxes 
-            - An array of box objects that can be preloaded into the canvas.
-        - lineOffset
-            - The offset for the lines .
-        - anchorSize
-            - The size of the anchors.
-        - updateBoxes
-            - A function that get's called whenever a box is updated within the component.
-        - color 
-            - Sets the color of boxes.
-        - anchorColor
-            - Sets the color of the anchor points on the box.
+### RectangleBuilder
+This is the main component that provides all the logic and canvas for the creating of the rectangles and the manipulation of them. It has some props that can be configured on the component that make it easily customizable. Those are:
+- width
+    - The desired width of the canvas.
+- height 
+    - The desired height of the canvas.
+- boxes 
+    - An array of box objects that can be preloaded into the canvas.
+- lineOffset
+    - The offset for the lines .
+- anchorSize
+    - The size of the anchors.
+- updateBoxes
+    - A function that get's called whenever a box is updated within the component.
+- color 
+    - Sets the color of boxes.
+- anchorColor
+    - Sets the color of the anchor points on the box.
 
 
-- Sidebar
-    - This is the pop out sidebar menu that contains the logic to store, restore and delete layouts from the local storage. It has a few props that are passed to it:
-        - setBoxes
-            - A function that will pass the box from the sidebar back into the RectangleBuilder component to be restore on the canvas.
-        - setShowSidebar
-            - A function that shows & hides the sidebar
-        - boxes
-            - This passes the current layout from RectangleBuilder to the sidebar so it can be saved. 
+### Sidebar
+This is the pop out sidebar menu that contains the logic to store, restore and delete layouts from the local storage. It has a few props that are passed to it:
+- setBoxes
+    - A function that will pass the box from the sidebar back into the RectangleBuilder component to be restore on the canvas.
+- setShowSidebar
+    - A function that shows & hides the sidebar
+- boxes
+    - This passes the current layout from RectangleBuilder to the sidebar so it can be saved. 
 
 
 ## Design Choices
