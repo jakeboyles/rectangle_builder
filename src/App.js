@@ -1,23 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable react-hooks/exhaustive-deps */
+
+import { useState } from "react";
+import "./App.scss";
+import RectangleBuilder from "./RectangleBuilder";
+import { Menu } from "@mui/icons-material";
+import { Sidebar } from "./components/sidebar";
 
 function App() {
+  const height = window.screen.height;
+  const width = window.screen.width;
+  const [boxes, setBoxes] = useState([]);
+  const [showSidebar, setShowSidebar] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div className="actions">
+        <div
+          onClick={(e) => {
+            setShowSidebar(!showSidebar);
+          }}
+          className="menu"
         >
-          Learn React
-        </a>
-      </header>
+          <Menu />
+        </div>
+
+        {showSidebar && (
+          <Sidebar
+            setBoxes={setBoxes}
+            setShowSidebar={setShowSidebar}
+            boxes={boxes}
+          />
+        )}
+        <h1>Rectangle Builder</h1>
+        <p>
+          Click and drag to create a rectangle. Press the backspace key to
+          remove the rectangle.
+        </p>
+      </div>
+      <RectangleBuilder
+        width={width}
+        height={height}
+        boxes={boxes}
+        lineOffset={4}
+        anchorSize={5}
+        updateBoxes={setBoxes}
+        color={"#8c9cf3"}
+        anchorColor="#b8c1f3"
+      />
     </div>
   );
 }

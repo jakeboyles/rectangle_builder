@@ -1,8 +1,52 @@
-# Getting Started with Create React App
+# Rectangle Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Rectangle builder is a small application that lets you draw, scale and move rectangles across the screen. You can remove a rectangle by clicking on it and then hitting backspace on your keyboard. You can access the menu by hitting the menu button in the top left of the application. That will let you name and save your layouts for future use. You can also delete and restore layouts from that section. 
 
-## Available Scripts
+
+## Components
+There are two main components that go into the overall application. They are:
+
+- RectangleBuilder
+    - This is the main component that provides all the logic and canvas for the creating of the rectangles and the manipulation of them. It has some props that can be configured on the component that make it easily customizable. Those are:
+        - width
+            - The desired width of the canvas.
+        - height 
+            - The desired height of the canvas.
+        - boxes 
+            - An array of box objects that can be preloaded into the canvas.
+        - lineOffset
+            - The offset for the lines .
+        - anchorSize
+            - The size of the anchors.
+        - updateBoxes
+            - A function that get's called whenever a box is updated within the component.
+        - color 
+            - Sets the color of boxes.
+        - anchorColor
+            - Sets the color of the anchor points on the box.
+
+
+- Sidebar
+    - This is the pop out sidebar menu that contains the logic to store, restore and delete layouts from the local storage. It has a few props that are passed to it:
+        - setBoxes
+            - A function that will pass the box from the sidebar back into the RectangleBuilder component to be restore on the canvas.
+        - setShowSidebar
+            - A function that shows & hides the sidebar
+        - boxes
+            - This passes the current layout from RectangleBuilder to the sidebar so it can be saved. 
+
+
+## Design Choices
+The colors that were chosen for the default values of the component were inspired by the branding colors from the https://www.myinnercircle.ai/ website. 
+
+
+## Future Additions
+- Make the rectangles be able to be rotated
+- Highlight the currently selected rectangle so users know which object they are manipulating
+- Refactor to use Fabric.JS for more built in options
+- 
+
+## Running the project
 
 In the project directory, you can run:
 
@@ -14,11 +58,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -27,44 +66,10 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Deploying the project
+This project is deployed using heroku and the create-react-app buildpack. (https://blog.heroku.com/deploying-react-with-zero-configuration)
 
-### `npm run eject`
+To deploy you can `git push heroku main` from within the project repo and it will be automatically deployed.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Please contact the repo owner to get access to the heroku account so you are credentialed to be able to push to the heroku repo.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
