@@ -11,17 +11,38 @@
     outline: none;
   }
 
+  .download {
+    position: fixed;
+    bottom:0px;
+    right:0px;
+
+
+    button {
+      background-color: #fff;
+      border:none;
+      padding:20px;
+      border-radius: 10px 0px 0px 0px;
+
+      &:hover {
+        opacity: .5;
+      }
+
+    }
+  }
+
   .removeAll {
     position: fixed;
     top:0px;
     right:0px;
-    background-color: #fff;
 
     button {
-      background-color: transparent;
+      background-color: #fff;
+      border-radius: 0px 0px 0px 10px;
       border:none;
       padding:20px;
-
+      &:hover {
+        opacity: .5;
+      }
     }
   }
 

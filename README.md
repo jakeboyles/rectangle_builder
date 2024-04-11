@@ -1,6 +1,6 @@
 # Rectangle Builder
 
-Rectangle builder is a small application that lets you draw, scale and move rectangles across the screen. You can remove a rectangle by clicking on it and then hitting backspace on your keyboard. You can access the menu by hitting the menu button in the top left of the application. That will let you name and save your layouts for future use. You can also delete and restore layouts from that section.
+Rectangle builder is a small application that lets you draw, scale and move rectangles across the screen. You can remove a rectangle by clicking on it and then hitting backspace on your keyboard. You can access the menu by hitting the menu button in the top left of the application. That will let you name and save your layouts for future use. You can also delete and restore layouts from that section. There is a download button on the bottom right of the application that let's you save an image of your canvas so you can always have it.
 
 ## Live Demo
 
@@ -55,6 +55,18 @@ The colors that were chosen for the default values of the component were inspire
 - Make the rectangles be able to be rotated
 - Highlight the currently selected rectangle so users know which object they are manipulating
 - Refactor to use Fabric.JS for more built in options
+
+
+## Areas of improvement
+
+- findCurrentBox function could use refactored or at-least commented better.
+- Getting to work on mobile devices. Right now it uses mouse event listeners. We could use touch events to make it also work on mobile devices.
+- Saving the local data to a persistant database. 
+- LogRocket for session recording and debugging.
+- User registration and profiles so users can store there own layouts to there profile.
+- A library of shared layouts so you can see what others have created and get inspiration.
+- The ability to change the colors of each individual box or to just set the default color.
+
 
 ## Running the project
 

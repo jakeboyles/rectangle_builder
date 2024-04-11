@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState } from "react";
 import "./App.scss";
-import { Menu, Delete } from "@mui/icons-material";
+import { Menu, Delete, Download } from "@mui/icons-material";
 import RectangleBuilder from "./RectangleBuilder";
 import { Sidebar } from "./components/sidebar";
 
@@ -10,6 +10,15 @@ function App() {
   const width = window.screen.width;
   const [boxes, setBoxes] = useState([]);
   const [showSidebar, setShowSidebar] = useState(false);
+
+  // Take the data URL and download it
+  const downloadImage = (data, filename = "rectangle.jpeg") => {
+    var a = document.createElement("a");
+    a.href = data;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+  };
 
   return (
     <div className="App">
@@ -33,15 +42,27 @@ function App() {
         <h1>Rectangle Builder</h1>
         <p>
           Click and drag to create a rectangle. Press the backspace key to
-          remove the rectangle. Hit the trash can in the top right to remove all. 
-          Hit the menu button to get access to your saved layouts and to save your current layout.
+          remove the rectangle. Hit the trash can in the top right to remove all
+          and the download button in the bottom right to save an image. Hit the
+          menu button to get access to your saved layouts and to save your
+          current layout.
         </p>
 
         <div className="removeAll">
-          <button onClick={() => setBoxes([])}><Delete /></button> 
+          <button onClick={() => setBoxes([])}>
+            <Delete />
+          </button>
         </div>
 
-
+        <div className="download">
+          <button
+            onClick={() =>
+              downloadImage(document.getElementById("canvas").toDataURL())
+            }
+          >
+            <Download />
+          </button>
+        </div>
       </div>
       <RectangleBuilder
         width={width}
